@@ -1,8 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="D:\Projects\UCivCity\Assets\CivCraft\ExtendedFlycam.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CitiesAtlas\CitiesAtlas.cs">
     <Files>
-      <File FileName="D:\Projects\UCivCity\Assets\CivCraft\ExtendedFlycam.cs" Line="31" Column="33" />
+      <File FileName="D:\Projects\UCivCity\Assets\CivCraft\ExtendedFlycam.cs" Line="56" Column="5" />
+      <File FileName="D:\Projects\UCivCity\Assets\Standard Assets\Cameras\Scripts\ProtectCameraFromWallClip.cs" Line="43" Column="47" />
+      <File FileName="CitiesAtlas\CitiesAtlas.cs" Line="91" Column="72" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

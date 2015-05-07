@@ -4,6 +4,7 @@ using ColossalFramework;
 using ColossalFramework.UI;
 using System.Collections;
 using ColossalFramework.Plugins;
+using System;
 
 public class CitiesAtlas : IUserMod {
 	
@@ -20,6 +21,8 @@ public class LoadingExtension : LoadingExtensionBase
 {
 
 	private bool active;
+
+	Texture2D[] originalMaps;
 
 	public override void OnLevelLoaded(LoadMode mode)
 	{
@@ -49,6 +52,7 @@ public class LoadingExtension : LoadingExtensionBase
 		button.focusedTextColor = new Color32(255, 255, 255, 255);
 		button.pressedTextColor = new Color32(30, 30, 44, 255);
 		
+
 		// Enable button sounds.
 		button.playAudioEvents = true;
 		
@@ -58,17 +62,52 @@ public class LoadingExtension : LoadingExtensionBase
 		// Respond to button click.
 		button.eventClick += ButtonClick;
 	}
+
+
 	
 	private void ButtonClick(UIComponent component, UIMouseEventParameter eventParam)
 	{
 		if (!active) {
+			originalMaps = new Texture2D[Singleton<TerrainManager>.instance.m_patches.Length];
+			int i = 0;
+			foreach(TerrainPatch terrainPatch in Singleton<TerrainManager>.instance.m_patches)
+			{
+				originalMaps[i] = terrainPatch.m_surfaceMapA;
+
+				terrainPatch.m_surfaceMapA = toColoredHeightMap(terrainPatch.m_heightMap);
+				i++;
+			}
 			active = true;
-			Singleton<InfoManager>.instance.SetCurrentMode (InfoManager.InfoMode.TerrainHeight, InfoManager.SubInfoMode.Default);
+			//Singleton<InfoManager>.instance.SetCurrentMode (InfoManager.InfoMode.TerrainHeight, InfoManager.SubInfoMode.Default);
 		}else{
+			int i = 0;
+			foreach(TerrainPatch terrainPatch in Singleton<TerrainManager>.instance.m_patches)
+			{
+				terrainPatch.m_surfaceMapA = originalMaps[i];
+				i++;
+			}
 			active = false;
-			Singleton<InfoManager>.instance.SetCurrentMode (InfoManager.InfoMode.None, InfoManager.SubInfoMode.Default);
+			//Singleton<InfoManager>.instance.SetCurrentMode (InfoManager.InfoMode.None, InfoManager.SubInfoMode.Default);
 	
 		}
 
+	}
+
+	Texture2D toColoredHeightMap (Texture2D m_heightMap)
+	{
+		Texture2D coloredHeightMap = new Texture2D (m_heightMap.width, m_heightMap.height);
+
+		for(int x  = 0; x < m_heightMap.width; x ++){
+			for(int y  = 0; y < m_heightMap.height; y ++){
+				coloredHeightMap.SetPixel(x,y,new Color(m_heightMap.GetPixel(x,y).r / 1000, m_heightMap.GetPixel(x,y).g/ 1000, m_heightMap.GetPixel(x,y).b/ 1000, m_heightMap.GetPixel(x,y).a));
+			}
+		}
+		coloredHeightMap.Apply ();
+		return coloredHeightMap;
+	}
+
+	public void debug(String message) 
+	{
+		DebugOutputPanel.AddMessage (ColossalFramework.Plugins.PluginManager.MessageType.Message, message);
 	}
 }
