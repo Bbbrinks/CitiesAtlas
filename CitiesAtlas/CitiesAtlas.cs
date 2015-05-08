@@ -134,9 +134,9 @@ public class contourExtension : LoadingExtensionBase
 			int i = 0;
 			foreach(TerrainPatch terrainPatch in Singleton<TerrainManager>.instance.m_patches)
 			{
-				originalMaps[i] = terrainPatch.m_surfaceMapA;
+				originalMaps[i] = terrainPatch.m_surfaceMapB;
 				
-				terrainPatch.m_surfaceMapA = toColoredHeightMap(terrainPatch.m_heightMap);
+				terrainPatch.m_surfaceMapB = toColoredHeightMap(terrainPatch.m_heightMap);
 				i++;
 			}
 			active = true;
@@ -144,7 +144,7 @@ public class contourExtension : LoadingExtensionBase
 			int i = 0;
 			foreach(TerrainPatch terrainPatch in Singleton<TerrainManager>.instance.m_patches)
 			{
-				terrainPatch.m_surfaceMapA = originalMaps[i];
+				terrainPatch.m_surfaceMapB = originalMaps[i];
 				i++;
 			}
 			active = false;

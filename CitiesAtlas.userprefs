@@ -1,16 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CitiesAtlas\CitiesAtlas.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="D:\Projects\UCivCity\Temp\Compiled-Unlit-Normal.shader">
     <Files>
-      <File FileName="D:\Projects\UCivCity\Assets\CivCraft\ExtendedFlycam.cs" Line="1" Column="1" />
-      <File FileName="D:\Projects\UCivCity\Assets\Standard Assets\Cameras\Scripts\ProtectCameraFromWallClip.cs" Line="1" Column="1" />
-      <File FileName="CitiesAtlas\CitiesAtlas.cs" Line="66" Column="41" />
+      <File FileName="D:\Projects\UCivCity\Assets\CivCraft\Scripts\WorldGenerator.cs" Line="9" Column="30" />
+      <File FileName="D:\Projects\UCivCity\Temp\Compiled-Unlit-Normal.shader" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="d:\projects\CitiesAtlas\CitiesAtlas\CitiesAtlas.cs" line="37" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
