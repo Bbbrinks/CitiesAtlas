@@ -19,9 +19,6 @@ public class CitiesAtlas : IUserMod {
 
 public class HeightMapExtension : LoadingExtensionBase
 {
-
-	private bool active;
-
 	public override void OnLevelLoaded(LoadMode mode)
 	{
 		// Get the UIView object. This seems to be the top-level object for most
@@ -65,14 +62,10 @@ public class HeightMapExtension : LoadingExtensionBase
 	
 	private void ButtonClick(UIComponent component, UIMouseEventParameter eventParam)
 	{
-		if (!active) {
-			active = true;
+		if (Singleton<InfoManager>.instance.CurrentMode != InfoManager.InfoMode.TerrainHeight) {
 			Singleton<InfoManager>.instance.SetCurrentMode (InfoManager.InfoMode.TerrainHeight, InfoManager.SubInfoMode.Default);
 		} else {
-
-			active = false;
 			Singleton<InfoManager>.instance.SetCurrentMode (InfoManager.InfoMode.None, InfoManager.SubInfoMode.Default);
-	
 		}
 	}
 
